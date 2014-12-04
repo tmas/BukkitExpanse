@@ -27,7 +27,8 @@ public class BukkitExpanse extends JavaPlugin {
 	}
 	@Override
 	public void onDisable() {
-		
+		getConfig().set("priceConstant", priceConstant);
+		getConfig().set("timeConstant", timeConstant);
 	}
 	public boolean onCommand(CommandSender sender, Command cmd, String label, String[] args) {
 		if (cmd.getName().equalsIgnoreCase("BukkitExpanse") && (sender.hasPermission("bukkitexpanse.*") || sender.hasPermission(cmd.getPermission()))) {
@@ -54,7 +55,10 @@ public class BukkitExpanse extends JavaPlugin {
 		double timeMod = timeConstant / (double)time;
 		return timeMod * blockPrice;
 	}
+	public void setBorder(int radius, int time) {
+		getServer().dispatchCommand(getServer().getConsoleSender(), "worldborder set " + radius + "" + time); // no api for world border yet :(
+	}
 	public void setBorder(int radius) {
-		
+		setBorder(radius, (int)timeConstant);
 	}
 }
