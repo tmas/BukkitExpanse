@@ -1,24 +1,16 @@
 name: BukkitExpanse
 main: de.lostco.bukkitexpanse.BukkitExpanse
 version: 0.1a
+load: startup
 commands:
    BukkitExpanse:
       description: Expand your borders.
       usage: /<command>
-      permission: <plugin name>.use
-      permission-message: You don't have <permission>
    expand:
       description: Pay to expand the world border
       usage: /command [additional radius] {time}
-      permission: <plugin name>.expand
-      permission-message: You don't have <permission>
+      permission: bukkitexpanse.expand
    expandprice:
       description: Check the price to expand the world border
       usage: /command [additional radius] {time}
-      permission: <plugin name>.price
-      permission-message: You don't have <permission>
-   totalxp:
-      description: See your total xp points
-      usage: /command
-      permission: <plugin name>.totalxp
-      permission-message: You don't have <permission>
+      permission: bukkitexpanse.expandprice
